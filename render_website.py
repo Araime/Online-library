@@ -1,5 +1,7 @@
 import json
+import os
 from livereload import Server
+from more_itertools import chunked
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -11,18 +13,25 @@ def read_books_description():
 
 
 def on_reload():
+    folder = 'pages'
+    os.makedirs(folder, exist_ok=True)
+
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
     )
 
     template = env.get_template('template.html')
-    rendered_page = template.render(
-        books=read_books_description()
-    )
 
-    with open('index.html', 'w', encoding='utf8') as file:
-        file.write(rendered_page)
+    books = read_books_description()
+    books_per_page = 20
+    for page_number, books_stack in enumerate(chunked(books, books_per_page), start=1):
+        rendered_page = template.render(
+            books=books_stack
+        )
+        page_name = os.path.join(folder, f'index{page_number}.html')
+        with open(page_name, 'w', encoding='utf8') as file:
+            file.write(rendered_page)
 
 
 def main():
