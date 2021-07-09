@@ -11,7 +11,6 @@
     <title>Библиотека Фантастики</title>
   </head>
   <body>
-  <br>
 
     <nav aria-label="page navigation">
       <ul class="pagination justify-content-center mt-3 ml-3">
@@ -29,8 +28,6 @@
       </ul>
     </nav>
 
-  <br>
-
   <div class="container">
     <div class="row">
       {% for book in books %}
@@ -47,12 +44,10 @@
                   <div class="container">
                     <div class="row">
                       <p class="card-text">
-                        <a href="../{{book.book_path|urlencode}}" target="_blank"></a>
-                        <button type="button" class="btn btn-outline-success"><img src="../images/book-2.png" alt="Книга" style="vertical-align: middle">Читать</button>
+                        <a href="../{{book.book_path|urlencode}}" target="_blank"><button type="button" class="btn btn-outline-success"><img src="../images/book-2.png" alt="Книга" style="vertical-align: middle">Читать</button></a>
                       </p>
                       <p class="card-text">
-                        <a href="../{{book.book_path|urlencode}}" download></a>
-                        <button type="button" class="btn btn-outline-info"><img src="../images/save.png" alt="Дискета" style="vertical-align: middle">Скачать</button>
+                        <a href="../{{book.book_path|urlencode}}" download><button type="button" class="btn btn-outline-info"><img src="../images/save.png" alt="Дискета" style="vertical-align: middle">Скачать</button></a>
                       </p>
                     </div>
                   </div>
