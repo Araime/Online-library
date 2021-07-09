@@ -11,6 +11,7 @@
     <title>Библиотека Фантастики</title>
   </head>
   <body>
+  <br>
 
     <nav aria-label="page navigation">
       <ul class="pagination justify-content-center mt-3 ml-3">
@@ -19,7 +20,7 @@
         </li>
         {% for page in pages %}
           <li class="page-item {% if current_page == page %}active{% endif %}">
-            <a class="page-link" href="../pages/index{{ page }}.html">{{ page }}{% if current_page == page %}<span class="sr-only">(current)</span>{% endif %}</a>
+            <a class="page-link" href="../pages/index{{page}}.html">{{page}}{% if current_page == page %}<span class="sr-only">(current)</span>{% endif %}</a>
           </li>
         {% endfor %}
         <li class="page-item {% if current_page == pages|length %}disabled{% endif %}">
@@ -27,6 +28,8 @@
         </li>
       </ul>
     </nav>
+
+  <br>
 
   <div class="container">
     <div class="row">
@@ -44,10 +47,12 @@
                   <div class="container">
                     <div class="row">
                       <p class="card-text">
-                        <a href="../{{book.book_path|urlencode}}" target="_blank"><button type="button" class="btn btn-outline-success"><img src="../images/book-2.png" alt="Книга" style="vertical-align: middle">Читать</button></a>
+                        <a href="../{{book.book_path|urlencode}}" target="_blank"></a>
+                        <button type="button" class="btn btn-outline-success"><img src="../images/book-2.png" alt="Книга" style="vertical-align: middle">Читать</button>
                       </p>
                       <p class="card-text">
-                        <a href="../{{book.book_path|urlencode}}" download><button type="button" class="btn btn-outline-info"><img src="../images/save.png" alt="Дискета" style="vertical-align: middle">Скачать</button></a>
+                        <a href="../{{book.book_path|urlencode}}" download></a>
+                        <button type="button" class="btn btn-outline-info"><img src="../images/save.png" alt="Дискета" style="vertical-align: middle">Скачать</button>
                       </p>
                     </div>
                   </div>
