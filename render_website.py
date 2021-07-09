@@ -1,4 +1,5 @@
 import json
+import math
 import os
 from livereload import Server
 from more_itertools import chunked
@@ -25,9 +26,12 @@ def on_reload():
 
     books = read_books_description()
     books_per_page = 20
+    pages = range(1, math.ceil(len(books) / books_per_page) + 1)
     for page_number, books_stack in enumerate(chunked(books, books_per_page), start=1):
         rendered_page = template.render(
-            books=books_stack
+            books=books_stack,
+            pages=pages,
+            current_page=page_number
         )
         page_name = os.path.join(folder, f'index{page_number}.html')
         with open(page_name, 'w', encoding='utf8') as file:
