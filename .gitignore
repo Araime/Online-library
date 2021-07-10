@@ -1,8 +1,5 @@
 /venv/
 /.idea/
-/books/
 /sample.log
-/images/
 /bs4_tutorial.py
 /main.py
-/json/
