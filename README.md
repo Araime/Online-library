@@ -48,7 +48,7 @@ env\scripts\activate
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/MZ72r22/2.png" alt="2" border="0"></a>
 
-#### Установление зависимостей
+#### Установка зависимостей
 
 Используйте `pip` (или `pip3`, есть конфликт с Python2) для установки 
 зависимостей:
