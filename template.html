@@ -42,19 +42,17 @@
                 <div class="card-body">
                   <h5 class="card-title">{{book.book_name}}</h5>
                   <p class="card-text">{{book.author}}</p>
+                  <p class="card-text mb-4">
                     {% for genre in book.genre %}
                       <span class="badge badge-pill badge-light">{{genre}}</span>
                     {% endfor %}
-                  <div class="container">
-                    <div class="row p-3">
-                      <p class="card-text">
-                        <a href="../{{book.book_path|urlencode}}" target="_blank"><button type="button" class="btn btn-outline-success"><img src="../static/book-2.png" alt="Книга" style="vertical-align: middle">Читать</button></a>
-                      </p>
-                      <p class="card-text">
-                        <a href="../{{book.book_path|urlencode}}" download><button type="button" class="btn btn-outline-info"><img src="../static/save.png" alt="Дискета" style="vertical-align: middle">Скачать</button></a>
-                      </p>
-                    </div>
-                  </div>
+                  </p>
+                  <a class="btn btn-outline-success" href="../{{book.book_path|urlencode}}" target="_blank" role="button"><img src="../static/book-2.png" alt="Книга" style="vertical-align: middle">
+                    Читать
+                  </a>
+                  <a class="btn btn-outline-info" href="../{{book.book_path|urlencode}}" download role="button"><img src="../static/save.png" alt="Дискета" style="vertical-align: middle">
+                    Скачать
+                  </a>
                 </div>
               </div>
             </div>
