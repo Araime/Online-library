@@ -16,15 +16,29 @@
     <nav aria-label="page navigation">
       <ul class="pagination justify-content-center mt-3 ml-3">
         <li class="page-item {% if current_page == 1 %}disabled{% endif %}">
+          <a class="page-link" href="../pages/index1.html">Первая</a>
+        </li>
+        <li class="page-item {% if current_page == 1 %}disabled{% endif %}">
           <a class="page-link" href="../pages/index{{current_page - 1}}.html">Назад</a>
         </li>
-        {% for page in pages %}
-          <li class="page-item {% if current_page == page %}active{% endif %}">
-            <a class="page-link" href="../pages/index{{page}}.html">{{page}}{% if current_page == page %}<span class="sr-only">(current)</span>{% endif %}</a>
+          {% if current_page != 1 %}
+          <li class="page-item">
+            <a class="page-link" href="../pages/index{{current_page - 1}}.html">{{current_page - 1}}</a>
           </li>
-        {% endfor %}
+          {% endif %}
+        <li class="page-item active">
+          <a class="page-link" href="../pages/index{{page}}.html">{{current_page}}<span class="sr-only">(current)</span></a>
+        </li>
+          {% if current_page != pages|length %}
+          <li class="page-item">
+            <a class="page-link" href="../pages/index{{current_page + 1}}.html">{{current_page + 1}}</a>
+          </li>
+          {% endif %}
         <li class="page-item {% if current_page == pages|length %}disabled{% endif %}">
           <a class="page-link" href="../pages/index{{current_page + 1}}.html">Вперёд</a>
+        </li>
+        <li class="page-item {% if current_page == pages|length %}disabled{% endif %}">
+          <a class="page-link" href="../pages/index{{pages|length}}.html">Последняя</a>
         </li>
       </ul>
     </nav>
